@@ -1,8 +1,15 @@
-﻿; Settings
+; Settings
 #NoEnv
 #Persistent
 #SingleInstance Force
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+Title := "No Border"
+
+Menu, Tray, NoStandard
+Menu, Tray, add, % Title, GuiTray
+Menu, Tray, disable, % Title
+Menu, Tray, add, Reload, GuiTray
+Menu, Tray, add, Exit, GuiTray
 
 ; Create ListView
 Gui, Add, ListView, x5 y5 w690 h290 gListSubroutine, Title|Process|id
@@ -23,6 +30,7 @@ Loop,%Windows%
 		LV_Add(,title,exe,id)
 	}
 }
+Gui, Show, w700 h300, % Title
 return
 
 ; Triggers on list interaction
@@ -45,3 +53,13 @@ return
 
 GuiClose:
 ExitApp
+
+; Handle user input from tray menu
+GuiTray(choice, position, menu) {
+	if (choice = "Exit") {
+		ExitApp
+	}
+	else if (choice == "Reload") {
+		Reload
+	}
+}
