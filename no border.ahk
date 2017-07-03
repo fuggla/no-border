@@ -8,7 +8,7 @@
 			Run a program in windowed mode. Run no border and double click on the program in the list.
 
 		License:
-		no border
+			no border
 			Copyright (C) 2017 Fred Uggla
 
 			This program is free software; you can redistribute it and/or modify
@@ -30,7 +30,7 @@
 #NoEnv
 #Persistent
 #SingleInstance Force
-Version := 0.1
+Version := 0.2
 Global ScriptName = % A_ScriptName . " " . Version
 
 ; Tray menu

@@ -1,5 +1,5 @@
-no border
-=========
+no border 0.2
+=============
 
 Removes border and fullscreens windows programs.
 
