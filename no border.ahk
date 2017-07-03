@@ -3,7 +3,6 @@
 #Persistent
 #SingleInstance Force
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-Version := "No Border 0.1"
 
 Menu, Tray, NoStandard
 Menu, Tray, add, Exit, GuiTray
@@ -27,7 +26,7 @@ Loop,%Windows%
 		LV_Add(,title,exe,id)
 	}
 }
-Gui, Show, w700 h300, % Version
+Gui, Show, w700 h300, % A_ScriptName
 return
 
 ; Triggers on list interaction
