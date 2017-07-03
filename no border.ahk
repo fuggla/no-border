@@ -2,7 +2,6 @@
 #NoEnv
 #Persistent
 #SingleInstance Force
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Version := 0.1
 Global ScriptName = % A_ScriptName . " " Version
 
