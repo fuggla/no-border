@@ -4,7 +4,7 @@
 #SingleInstance Force
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Version := 0.1
-ScriptName = % A_ScriptName . " " Version
+Global ScriptName = % A_ScriptName . " " Version
 
 Menu, Tray, NoStandard
 Menu, Tray, add, Exit, GuiTray
@@ -64,8 +64,8 @@ FindWindows() {
 		WinGetTitle, title, % id
 		WinGet, exe, ProcessName, % title
 
-		; Only add windows the user can identify
-		if (title or exe) {
+		; Only add windows the user can identify, don't addgui window
+		if ((title or exe) and title != ScriptName) {
 			LV_Add(,title,exe,id)
 		}
 	}
