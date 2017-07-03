@@ -6,6 +6,9 @@ Version := 0.1
 Global ScriptName = % A_ScriptName . " " Version
 
 Menu, Tray, NoStandard
+Menu, Tray, add, % ScriptName, GuiTray
+Menu, Tray, Default, % ScriptName
+Menu, Tray, Click, 1
 Menu, Tray, add, Exit, GuiTray
 
 ; Create ListView
@@ -26,7 +29,8 @@ if (A_GuiEvent == "DoubleClick") {
 return
 
 GuiClose:
-ExitApp
+	Gui, Hide
+return
 
 ; Refresh window list
 F5::
@@ -38,7 +42,7 @@ GuiTray(choice, position, menu) {
 	if (choice = "Exit") {
 		ExitApp
 	}
-	else if (choice == "Reload") {
+	else if (choice == ScriptName) {
 		Reload
 	}
 }
