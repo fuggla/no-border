@@ -11,4 +11,4 @@ Start a windowed program in fullscreen resolution (or a window which accepts res
 Why another one of these borderless windows script/programs?
 ------------------------------------------------------------
 
-Couldn't get other similar software to work with some older application. Wrote a short script for it and then things got out of hand. :)
+Couldn't get other similar software to work with some older applications. Wrote a short script for it and then things got out of hand. :)
