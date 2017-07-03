@@ -6,9 +6,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Version := "No Border 0.1"
 
 Menu, Tray, NoStandard
-Menu, Tray, add, % Version, GuiTray
-Menu, Tray, disable, % Version
-Menu, Tray, add, Reload, GuiTray
 Menu, Tray, add, Exit, GuiTray
 
 ; Create ListView
