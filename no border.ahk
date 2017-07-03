@@ -39,6 +39,11 @@ return
 GuiClose:
 ExitApp
 
+; Refresh window list
+F5::
+	FindWindows()
+return
+
 ; Handle user input from tray menu
 GuiTray(choice, position, menu) {
 	if (choice = "Exit") {
@@ -51,7 +56,8 @@ GuiTray(choice, position, menu) {
 
 ; Find all Windows and add them to ListView
 FindWindows() {
-WinGet, Windows, List
+	LV_Delete()
+	WinGet, Windows, List
 	Loop, %Windows%
 	{
 		id := "ahk_id " . Windows%A_Index%
