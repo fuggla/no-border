@@ -3,6 +3,8 @@
 #Persistent
 #SingleInstance Force
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+Version := 0.1
+ScriptName = % A_ScriptName . " " Version
 
 Menu, Tray, NoStandard
 Menu, Tray, add, Exit, GuiTray
@@ -12,21 +14,8 @@ Gui, Add, ListView, x5 y5 w690 h290 gListSubroutine, Title|Process|id
 LV_ModifyCol(1, 550)
 LV_ModifyCol(2, 136)
 LV_ModifyCol(3, 0) ; Hide column id from user
-
-; Find all Windows and add them to ListView
-WinGet,Windows,List
-Loop,%Windows%
-{
-	id := "ahk_id " . Windows%A_Index%
-	WinGetTitle, title, % id
-	WinGet, exe, ProcessName, % title
-	
-	; Only add windows the user can identify
-	if (title or exe) {
-		LV_Add(,title,exe,id)
-	}
-}
-Gui, Show, w700 h300, % A_ScriptName
+FindWindows()
+Gui, Show, w700 h300, % ScriptName
 return
 
 ; Triggers on list interaction
@@ -57,5 +46,21 @@ GuiTray(choice, position, menu) {
 	}
 	else if (choice == "Reload") {
 		Reload
+	}
+}
+
+; Find all Windows and add them to ListView
+FindWindows() {
+WinGet, Windows, List
+	Loop, %Windows%
+	{
+		id := "ahk_id " . Windows%A_Index%
+		WinGetTitle, title, % id
+		WinGet, exe, ProcessName, % title
+
+		; Only add windows the user can identify
+		if (title or exe) {
+			LV_Add(,title,exe,id)
+		}
 	}
 }
