@@ -21,17 +21,7 @@ return
 ListSubroutine:
 if (A_GuiEvent == "DoubleClick") {
 	LV_GetText(id, A_EventInfo, 3)
-	; Kill all the styles
-	WinSet, Style, -0x00C00000L, % id
-	WinSet, Style, -0x00040000L, % id
-	WinSet, Style, -0x20000000L, % id
-	WinSet, Style, -0x01000000L, % id
-	WinSet, Style, -0x00080000L, % id
-	WinSet, Style, -0x00000200L, % id
-	WinSet, Style, -0x00020000L, % id
-	WinSet, Style, -0x00000001L, % id
-	WinMove,  % id, , 0, 0, % A_ScreenWidth, % A_ScreenHeight ; What about multiple monitors though?
-	WinActivate, % id
+	RemoveStyles(id)
 }
 return
 
@@ -68,4 +58,18 @@ FindWindows() {
 			LV_Add(,title,exe,id)
 		}
 	}
+}
+
+; Remove all the styles
+RemoveStyles(id) {
+	WinSet, Style, -0x00C00000L, % id
+	WinSet, Style, -0x00040000L, % id
+	WinSet, Style, -0x20000000L, % id
+	WinSet, Style, -0x01000000L, % id
+	WinSet, Style, -0x00080000L, % id
+	WinSet, Style, -0x00000200L, % id
+	WinSet, Style, -0x00020000L, % id
+	WinSet, Style, -0x00000001L, % id
+	WinMove,  % id, , 0, 0, % A_ScreenWidth, % A_ScreenHeight ; What about multiple monitors though?
+	WinActivate, % id
 }
