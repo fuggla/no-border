@@ -3,6 +3,11 @@ no border 0.2
 
 Removes border and fullscreens windows programs.
 
+Installation
+------------
+
+Either download and run the ahk script (requires AutoHotkey) or download and run the [lates executable](https://github.com/owlnical/no-border/releases/latest).
+
 Usage
 -----
 
